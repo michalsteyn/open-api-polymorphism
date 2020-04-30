@@ -13,8 +13,8 @@ namespace SwaggerPlayground.Controllers
         public Animal Animal { get; set; }
     }
 
-    [JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
-    [KnownType(typeof(Dog))]
+    //[JsonConverter(typeof(JsonInheritanceConverter), "discriminator")]
+    //[KnownType(typeof(Dog))]
     public class Animal
     {
         public int Age { get; set; }
@@ -33,6 +33,7 @@ namespace SwaggerPlayground.Controllers
     // see https://github.com/RicoSuter/NJsonSchema/wiki/Inheritance
 
     [Route("api/[controller]")]
+    [Produces("application/json")]
     public class AnimalController : Controller
     {
         // GET: api/<controller>
